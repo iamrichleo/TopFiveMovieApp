@@ -8,8 +8,10 @@ To install and run the project locally, follow these steps:
 
 1. Clone the repository:
 
-  `git clone git@github.com:iamrichleo/TopFiveMovieApp.git`
-  `cd movie-exploration-app`
+  ```
+  git clone git@github.com:iamrichleo/TopFiveMovieApp.git
+  cd movie-exploration-app
+  ```
 
 2. Install dependencies:
 
