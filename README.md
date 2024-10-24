@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+# Movie Exploration App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+If you want to use the application, it is deployed on Vercel here: [Movie Exploration App](https://top-five-movie-app.vercel.app/).
 
-Currently, two official plugins are available:
+## Installation and Running Locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To install and run the project locally, follow these steps:
 
-## Expanding the ESLint configuration
+1. Clone the repository:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  git clone git@github.com:iamrichleo/TopFiveMovieApp.git
+  cd movie-exploration-app
 
-- Configure the top-level `parserOptions` property like this:
+2. Install dependencies:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+  npm install
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. Run the Development Server
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+  npm run dev
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+4. Run the Testing Suite
+
+  npm run test
+
+## Why I Chose My Current Tech Stack
+
+- **Vite**: Vite was the best choice for this project because it offers fast hot module replacement (HMR), which speeds up development significantly. Its lightning-fast build times and modern features like native ES modules support allow me to focus on writing code rather than waiting for builds. Vite's configuration is also straightforward, making it easy to get started quickly.
+
+- **Avoided Redux**: For this project, I opted to avoid Redux since I did not need overly advanced state management. The app's state can be effectively managed with React's built-in hooks.
+
+- **Radix UI**: I pulled in Radix as a flexible UI library to provide accessible components that enhance user experience while allowing for customization.
+
+- **Animations and UI Flair**: I incorporated a variety of animations using `framer-motion` to create a dynamic interface that showcases my range in UI design.
+
+## Areas for Improvement
+
+- **React Router**: I plan to integrate React Router to allow users to toggle between additional top 5 lists (e.g., TV shows, books, etc.). This functionality would necessitate a broader client state management solution, possibly Redux.
+
+- **Fix React Warnings**: I need to address all existing React warnings in the application to ensure clean code and a better development experience.
+
+- **Smoother Search Experience**: Improving the search functionality is essential. This includes implementing more advanced query matching, adding debounce functionality, and ensuring that movies without a poster image are not displayed.
+
+- **Favorites Section in Footer**: Moving the Favorites section into a fixed footer would allow users to see their favorites regardless of their scroll position.
+
+- **Localization**: I plan to localize the text within the app to make it accessible to a broader audience.
+
+- **Shareable Deeplinks**: Creating shareable deeplinks would enable the app to parse the URL to determine the user's favorites, enhancing user experience and sharing capabilities.
+
+- **Mobile UI Improvements**: The current design shows the video play button on movie card hover, which isn’t intuitive on mobile devices. I will redesign this for a better mobile experience.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
