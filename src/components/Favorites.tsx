@@ -114,7 +114,7 @@ const Favorites: React.FC<FavoritesProps> = ({
                     onTrailerRequest={onTrailerRequest}
                     isFavorite={true}
                     showTitle={false}
-                    isFavoriteCard
+                    isFavoriteCard={true}
                     className="small-card"
                   />
                 </>
