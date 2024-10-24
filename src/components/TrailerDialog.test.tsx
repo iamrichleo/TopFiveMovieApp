@@ -30,7 +30,7 @@ describe("TrailerDialog Component", () => {
         selectedMovie={mockMovie}
         trailerKey="mockTrailerKey"
         trailerMessage={null}
-      />
+      />,
     );
 
     expect(screen.getByText(/Trailer for Mock Movie/i)).toBeInTheDocument();
@@ -44,7 +44,7 @@ describe("TrailerDialog Component", () => {
         selectedMovie={mockMovie}
         trailerKey="mockTrailerKey"
         trailerMessage={null}
-      />
+      />,
     );
 
     expect(screen.getByTitle("Trailer")).toBeInTheDocument();
@@ -59,7 +59,7 @@ describe("TrailerDialog Component", () => {
         selectedMovie={mockMovie}
         trailerKey={null}
         trailerMessage={message}
-      />
+      />,
     );
 
     expect(screen.getByText(message)).toBeInTheDocument();
@@ -73,7 +73,7 @@ describe("TrailerDialog Component", () => {
         selectedMovie={mockMovie}
         trailerKey="mockTrailerKey"
         trailerMessage={null}
-      />
+      />,
     );
 
     const closeButton = screen.getByRole("button");

@@ -22,9 +22,11 @@ describe("Filmstrip Component", () => {
 
   test("renders the correct number of filmstrip images", () => {
     const { container } = render(<Filmstrip />);
-    
-    const filmstripImages = container.querySelectorAll(`img[src="${FilmstripImage}"]`);
-    
+
+    const filmstripImages = container.querySelectorAll(
+      `img[src="${FilmstripImage}"]`,
+    );
+
     expect(filmstripImages.length).toBe(4);
   });
 });

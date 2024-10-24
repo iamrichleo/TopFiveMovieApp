@@ -1,17 +1,17 @@
-import { describe, it, expect, vi } from 'vitest';
-import { searchMovies, getMovieTrailers } from './movieAPI';
-import fetchRequest from './fetchRequest'; 
-import type { MovieApiResponse } from '../types';
+import { describe, it, expect, vi } from "vitest";
+import { searchMovies, getMovieTrailers } from "./movieAPI";
+import fetchRequest from "./fetchRequest";
+import type { MovieApiResponse } from "../types";
 
-vi.mock('./fetchRequest');
+vi.mock("./fetchRequest");
 
-describe('Movie Service Functions', () => {
+describe("Movie Service Functions", () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  describe('searchMovies', () => {
-    it('should return a list of movies based on the search query', async () => {
+  describe("searchMovies", () => {
+    it("should return a list of movies based on the search query", async () => {
       const mockApiResponse: MovieApiResponse = {
         page: 1,
         total_results: 100,
@@ -55,38 +55,38 @@ describe('Movie Service Functions', () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (fetchRequest as any).mockResolvedValueOnce(mockApiResponse);
 
-      const movies = await searchMovies('Movie');
+      const movies = await searchMovies("Movie");
 
       expect(fetchRequest).toHaveBeenCalledWith(
-        expect.stringContaining('/search/movie'),
+        expect.stringContaining("/search/movie"),
         {
-          method: 'GET',
-          responseType: 'json',
-        }
+          method: "GET",
+          responseType: "json",
+        },
       );
       expect(movies).toEqual(mockApiResponse.results.slice(0, 20));
     });
 
-    it('should return an empty array if no movies are found', async () => {
-      const mockApiResponse: MovieApiResponse = { 
+    it("should return an empty array if no movies are found", async () => {
+      const mockApiResponse: MovieApiResponse = {
         page: 1,
         total_results: 0,
         total_pages: 0,
-        results: [] 
+        results: [],
       };
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (fetchRequest as any).mockResolvedValueOnce(mockApiResponse);
 
-      const movies = await searchMovies('Non-existent Movie');
+      const movies = await searchMovies("Non-existent Movie");
 
       expect(movies).toEqual([]);
     });
   });
 
-  describe('getMovieTrailers', () => {
-    it('should return a list of videos for a given movie ID', async () => {
-      const mockVideoResponse = { results: [{ id: 1, key: 'trailer1' }] };
+  describe("getMovieTrailers", () => {
+    it("should return a list of videos for a given movie ID", async () => {
+      const mockVideoResponse = { results: [{ id: 1, key: "trailer1" }] };
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (fetchRequest as any).mockResolvedValueOnce(mockVideoResponse);
@@ -94,16 +94,16 @@ describe('Movie Service Functions', () => {
       const videos = await getMovieTrailers(123);
 
       expect(fetchRequest).toHaveBeenCalledWith(
-        expect.stringContaining('/movie/123/videos'),
+        expect.stringContaining("/movie/123/videos"),
         {
-          method: 'GET',
-          responseType: 'json',
-        }
+          method: "GET",
+          responseType: "json",
+        },
       );
       expect(videos).toEqual(mockVideoResponse.results);
     });
 
-    it('should return an empty array if no videos are found', async () => {
+    it("should return an empty array if no videos are found", async () => {
       const mockVideoResponse = { results: [] };
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -111,7 +111,7 @@ describe('Movie Service Functions', () => {
 
       const videos = await getMovieTrailers(123);
 
-      expect(videos).toEqual([]); 
+      expect(videos).toEqual([]);
     });
   });
 });

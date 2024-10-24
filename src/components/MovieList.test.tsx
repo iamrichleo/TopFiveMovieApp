@@ -55,7 +55,12 @@ describe("MovieList Component", () => {
   ];
 
   const mockFavorites = [
-    { id: 1, title: "Movie 1", overview: "Overview 1", poster_path: "/path1.jpg" },
+    {
+      id: 1,
+      title: "Movie 1",
+      overview: "Overview 1",
+      poster_path: "/path1.jpg",
+    },
   ];
 
   const mockOnFavoriteToggle = vi.fn();
@@ -68,7 +73,7 @@ describe("MovieList Component", () => {
         onFavoriteToggle={mockOnFavoriteToggle}
         onTrailerRequest={mockOnTrailerRequest}
         favorites={mockFavorites}
-      />
+      />,
     );
 
     const movieCards = screen.getAllByRole("img");
@@ -82,7 +87,7 @@ describe("MovieList Component", () => {
         onFavoriteToggle={mockOnFavoriteToggle}
         onTrailerRequest={mockOnTrailerRequest}
         favorites={mockFavorites}
-      />
+      />,
     );
 
     const movieCard1 = screen.getByAltText("Movie 1");

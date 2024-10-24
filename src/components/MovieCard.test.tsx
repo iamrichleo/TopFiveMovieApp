@@ -30,7 +30,7 @@ describe("MovieCard Component", () => {
         onFavoriteToggle={mockOnFavoriteToggle}
         isFavorite={false}
         onTrailerRequest={mockOnTrailerRequest}
-      />
+      />,
     );
 
     const titleElement = screen.getByText(mockMovie.title);
@@ -44,7 +44,7 @@ describe("MovieCard Component", () => {
         onFavoriteToggle={mockOnFavoriteToggle}
         isFavorite={false}
         onTrailerRequest={mockOnTrailerRequest}
-      />
+      />,
     );
 
     const cardElement = screen.getByText(mockMovie.title).closest("div");
@@ -61,7 +61,7 @@ describe("MovieCard Component", () => {
         onFavoriteToggle={mockOnFavoriteToggle}
         isFavorite={false}
         onTrailerRequest={mockOnTrailerRequest}
-      />
+      />,
     );
 
     const heartButton = screen.getByRole("button");
