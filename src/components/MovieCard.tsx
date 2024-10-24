@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaPlay, FaHeart, FaRegHeart } from "react-icons/fa";
 import { colors, fonts } from "../styles/variables";
+import type { Movie } from "../types";
 
 /* Styled Components */
 const Card = styled.div<{ padding?: boolean }>`
@@ -130,13 +131,8 @@ const CardWrapper = styled.div`
 
 /* Types */
 interface MovieCardProps {
-  movie: {
-    id: number;
-    title: string;
-    overview: string;
-    poster_path: string;
-  };
-  onFavoriteToggle: (movie: any) => void;
+  movie: Movie;
+  onFavoriteToggle: (movie: Movie) => void;
   isFavorite: boolean;
   isFavoriteCard?: boolean;
   onTrailerRequest: (id: number) => void;

@@ -3,6 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
 import { fonts, colors } from "../styles/variables";
+import type { Movie } from "../types";
 
 /* Styled Components */
 const Overlay = styled(Dialog.Overlay)`
@@ -73,7 +74,7 @@ const Iframe = styled.iframe`
 interface TrailerDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  selectedMovie: any;
+  selectedMovie: Movie | null;
   trailerKey: string | null;
   trailerMessage: string | null;
 }

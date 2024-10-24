@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import MovieCard from "./MovieCard";
+import type { Movie } from "../types";
 
 /* Styled Components */
 const GridContainer = styled.div`
@@ -11,13 +12,8 @@ const GridContainer = styled.div`
 
 /* Types */
 interface MovieListProps {
-  movies: Array<{
-    id: number;
-    title: string;
-    overview: string;
-    poster_path: string;
-  }>;
-  onFavoriteToggle: (movie: any) => void;
+  movies: Array<Movie>;
+  onFavoriteToggle: (movie: Movie) => void;
   onTrailerRequest: (id: number) => void;
   favorites: Array<{
     id: number;

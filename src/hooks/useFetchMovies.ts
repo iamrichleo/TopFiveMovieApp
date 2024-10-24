@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { searchMovies } from "../api/movieAPI";
+import type { Movie } from "../types";
 
 const useFetchMovies = (query: string) => {
-  const [movies, setMovies] = useState<any[]>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 

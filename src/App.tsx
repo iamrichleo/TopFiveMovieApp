@@ -12,6 +12,7 @@ import { getMovieTrailers } from "./api/movieAPI";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { colors } from "./styles/variables";
+import type { Movie } from "./types";
 
 const AppWrapper = styled.div`
   position: relative;
@@ -69,14 +70,17 @@ const fadeInVariants = {
 const App: React.FC = () => {
   const [query, setQuery] = useState("");
   const { movies, loading, error } = useFetchMovies(query);
-  const [favorites, setFavorites] = useState<any[]>([]);
+  const [favorites, setFavorites] = useState<Movie[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [trailerKey, setTrailerKey] = useState<string | null>(null);
-  const [selectedMovie, setSelectedMovie] = useState<any>(null);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [trailerMessage, setTrailerMessage] = useState<string | null>(null);
   const [hasSearched, setHasSearched] = useState(false);
 
-  const handleFavoriteToggle = (movie: any) => {
+  const handleFavoriteToggle = (movie: Movie) => {
+    console.log("movie", movie);
+    console.log("favorites", favorites);
+
     const movieId = movie.id;
     if (favorites.some((fav) => fav.id === movieId)) {
       setFavorites(favorites.filter((fav) => fav.id !== movieId));

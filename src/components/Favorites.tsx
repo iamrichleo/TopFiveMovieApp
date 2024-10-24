@@ -2,6 +2,7 @@ import React from "react";
 import MovieCard from "./MovieCard";
 import styled from "styled-components";
 import { colors, fonts } from "../styles/variables";
+import type { Movie } from "../types";
 
 /* Styled Components */
 const Container = styled.div`
@@ -73,15 +74,10 @@ const Placeholder = styled.div`
 
 /* Types */
 interface FavoritesProps {
-  favorites: Array<{
-    id: number;
-    title: string;
-    overview: string;
-    poster_path: string;
-  }>;
-  onFavoriteToggle: (movie: any) => void;
+  favorites: Array<Movie>;
+  onFavoriteToggle: (movie: Movie) => void;
   onTrailerRequest: (id: number) => void;
-  setFavorites: React.Dispatch<React.SetStateAction<any[]>>;
+  setFavorites: React.Dispatch<React.SetStateAction<Movie[]>>;
 }
 
 /* Components */

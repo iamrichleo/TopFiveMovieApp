@@ -2,8 +2,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
-import { colors, fonts } from "./styles/variables"; // Import colors and fonts from variables
+import { colors, fonts } from "./styles/variables";
 
+// eslint-disable-next-line react-refresh/only-export-components
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: ${fonts.main};
